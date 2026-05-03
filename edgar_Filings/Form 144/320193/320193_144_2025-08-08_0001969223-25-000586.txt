@@ -1,0 +1,144 @@
+<SEC-DOCUMENT>0001969223-25-000586.txt : 20250808
+<SEC-HEADER>0001969223-25-000586.hdr.sgml : 20250808
+<ACCEPTANCE-DATETIME>20250808160715
+ACCESSION NUMBER:		0001969223-25-000586
+CONFORMED SUBMISSION TYPE:	144
+PUBLIC DOCUMENT COUNT:		1
+FILED AS OF DATE:		20250808
+DATE AS OF CHANGE:		20250808
+
+SUBJECT COMPANY:	
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			Apple Inc.
+		CENTRAL INDEX KEY:			0000320193
+		STANDARD INDUSTRIAL CLASSIFICATION:	ELECTRONIC COMPUTERS [3571]
+		ORGANIZATION NAME:           	06 Technology
+		EIN:				942404110
+		STATE OF INCORPORATION:			CA
+		FISCAL YEAR END:			0927
+
+	FILING VALUES:
+		FORM TYPE:		144
+		SEC ACT:		1933 Act
+		SEC FILE NUMBER:	001-36743
+		FILM NUMBER:		251198445
+
+	BUSINESS ADDRESS:	
+		STREET 1:		ONE APPLE PARK WAY
+		CITY:			CUPERTINO
+		STATE:			CA
+		ZIP:			95014
+		BUSINESS PHONE:		(408) 996-1010
+
+	MAIL ADDRESS:	
+		STREET 1:		ONE APPLE PARK WAY
+		CITY:			CUPERTINO
+		STATE:			CA
+		ZIP:			95014
+
+	FORMER COMPANY:	
+		FORMER CONFORMED NAME:	APPLE INC
+		DATE OF NAME CHANGE:	20070109
+
+	FORMER COMPANY:	
+		FORMER CONFORMED NAME:	APPLE COMPUTER INC
+		DATE OF NAME CHANGE:	19970808
+
+REPORTING-OWNER:	
+
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			O'BRIEN DEIRDRE
+		CENTRAL INDEX KEY:			0001767094
+		ORGANIZATION NAME:           	
+
+	FILING VALUES:
+		FORM TYPE:		144
+
+	MAIL ADDRESS:	
+		STREET 1:		ONE APPLE PARK WAY
+		CITY:			CUPERTINO
+		STATE:			CA
+		ZIP:			95014
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>144
+<SEQUENCE>1
+<FILENAME>primary_doc.xml
+<TEXT>
+<XML>
+<?xml version="1.0" encoding="UTF-8"?><edgarSubmission xmlns="http://www.sec.gov/edgar/ownership" xmlns:com="http://www.sec.gov/edgar/common">
+  <headerData>
+    <submissionType>144</submissionType>
+    <filerInfo>
+      <filer>
+        <filerCredentials>
+          <cik>0001767094</cik>
+          <ccc>XXXXXXXX</ccc>
+        </filerCredentials>
+      </filer>
+      <liveTestFlag>LIVE</liveTestFlag>
+
+
+
+    </filerInfo>
+  </headerData>
+  <formData>
+    <issuerInfo>
+      <issuerCik>0000320193</issuerCik>
+      <issuerName>Apple Inc.</issuerName>
+      <secFileNumber>001-36743</secFileNumber>
+      <issuerAddress>
+        <com:street1>ONE APPLE PARK WAY</com:street1>
+        <com:city>CUPERTINO</com:city>
+        <com:stateOrCountry>CA</com:stateOrCountry>
+        <com:zipCode>95014</com:zipCode>
+      </issuerAddress>
+      <issuerContactPhone>(408) 996-1010</issuerContactPhone>
+      <nameOfPersonForWhoseAccountTheSecuritiesAreToBeSold>O'BRIEN DEIRDRE</nameOfPersonForWhoseAccountTheSecuritiesAreToBeSold>
+      <relationshipsToIssuer>
+        <relationshipToIssuer>Officer</relationshipToIssuer>
+      </relationshipsToIssuer>
+    </issuerInfo>
+    <securitiesInformation>
+      <securitiesClassTitle>Common</securitiesClassTitle>
+      <brokerOrMarketmakerDetails>
+        <name>UBS Financial Services Inc.</name>
+        <address>
+          <com:street1>11 Madison Avenue</com:street1>
+          <com:street2>4th Floor</com:street2>
+          <com:city>New York</com:city>
+          <com:stateOrCountry>NY</com:stateOrCountry>
+          <com:zipCode>10010</com:zipCode>
+        </address>
+      </brokerOrMarketmakerDetails>
+      <noOfUnitsSold>34821</noOfUnitsSold>
+      <aggregateMarketValue>7772064.61</aggregateMarketValue>
+      <noOfUnitsOutstanding>14840390000</noOfUnitsOutstanding>
+      <approxSaleDate>08/08/2025</approxSaleDate>
+      <securitiesExchangeName>NASDAQ</securitiesExchangeName>
+    </securitiesInformation>
+    <securitiesToBeSold>
+      <securitiesClassTitle>Common</securitiesClassTitle>
+      <acquiredDate>04/01/2025</acquiredDate>
+      <natureOfAcquisitionTransaction>Vesting of Stock Award</natureOfAcquisitionTransaction>
+      <nameOfPersonfromWhomAcquired>Issuer</nameOfPersonfromWhomAcquired>
+      <isGiftTransaction>N</isGiftTransaction>
+      <amountOfSecuritiesAcquired>34821</amountOfSecuritiesAcquired>
+      <paymentDate>04/01/2025</paymentDate>
+      <natureOfPayment>N/A</natureOfPayment>
+    </securitiesToBeSold>
+    <nothingToReportFlagOnSecuritiesSoldInPast3Months>Y</nothingToReportFlagOnSecuritiesSoldInPast3Months>
+    <noticeSignature>
+      <noticeDate>08/08/2025</noticeDate>
+      <planAdoptionDates>
+        <planAdoptionDate>08/27/2024</planAdoptionDate>
+      </planAdoptionDates>
+      <signature>/s/ UBS Financial Services, Inc. as attorney-in-fact for Deirdre O'Brien</signature>
+    </noticeSignature>
+  </formData>
+</edgarSubmission>
+</XML>
+</TEXT>
+</DOCUMENT>
+</SEC-DOCUMENT>

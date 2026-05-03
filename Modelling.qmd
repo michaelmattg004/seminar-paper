@@ -1,0 +1,78 @@
+---
+title: "Modelling"
+author: "Michael Gonzalez"
+format: pdf
+editor: visual
+---
+
+
+
+```{r}
+
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(stats, dynlm, lmtest, sandwich, urca, quantmod, exuber, readxl, exuberdata)
+
+load("allData.RData")
+
+y <- log(price) - log(dividend)
+#this step is necessary or radf() will return error
+y_vec <- ts(as.numeric(y), start = c(1926, 3), frequency = 12)
+
+est_y <- radf(y_vec, lag = 1)
+summary(est_y)
+
+
+#selecting lags
+adf_model_y <- ur.df(y_vec, type = "drift", selectlags = "AIC")
+summary(adf_model_y)
+# suggests one lag
+
+# Reject null at 5%, evidence of explosiveness
+diagnostics(est_y)
+
+#Implementing rule-of-thumb proposed by Phillips et. al (2015) to compute minimum duration of an episode of "exuberance"
+rot = psy_ds(length(y), rule = 1, delta = 1)
+
+#trying to date periods of exuberance
+dstamp_y <- datestamp(est_y, min_duration = rot)
+dstamp_y
+# no period from the 2020s makes this criteria
+
+y2 <- ts(as.numeric(log_price), start = c(1926,3), frequency = 12)
+
+adf_model_y2 <- ur.df(y2, type = "drift", selectlags = "AIC")
+summary(adf_model_y2)
+
+est_y2 <- radf(y2, lag = 1)
+summary(est_y2)
+diagnostics(est_y2)
+#reject null at 1%
+roti = psy_ds(length(y2), rule = 1, delta = 1)
+dstamp_y2 <- datestamp(est_y2, min_duration = roti)
+dstamp_y2
+
+#cleanup
+rm(PPIACO)
+
+#gonna remove PPI, thats only in Diba and Grossman
+library(onlineforecast)
+
+#OLS
+regName1 <- lm(log_price ~ log_dividend)
+#regName1_2 <- ar.ols(x = regName1, order.max = 12, demean = F, intercept = T)
+regname2 <- dynlm(ts(log_price) ~ L(ts(log_price)) + L(ts(log_price), 2))
+#
+coeftest(regName1, vcov. = vcovHC, type = "HC1")
+
+#NEXT: read on Exuber package used for GSADF from PWY
+
+#Engle-Granger test for cointegration of prices and divs
+FS_EGADF <- dynlm(ts(log_price) ~ ts(log_dividend))
+FS_EGADF
+# log_price = 3.02 + 1.26 * log_dividend, theta = 1.26
+z_hat <- resid(FS_EGADF)
+ur.df(z_hat, lags = 6, type = "none", selectlags = "AIC")
+#ADF test statistic returns -3.9438, reject null hypothesis at 5%, z_hat is stationary
+#critical values are -3.12, -3.41, and -3.96 respectively
+#indicates log prices and log dividends cointegrated
+```

@@ -1,0 +1,43 @@
+---
+title: "Construction"
+format: pdf
+editor: visual
+author: Michael Gonzalez
+---
+
+This file constructs the data needed for modeling, then saves the result as allData.RData, so you would just need to execute Modelling.qmd
+
+```{r}
+# Installing pacman
+if (!require("pacman")) install.packages("pacman")
+#Loading packages, install if necessary
+pacman::p_load(readxl, quantmod)
+
+#importing excel sheet
+ie_data <- read_excel("data/ie_data.xls", 
+    sheet = "Data", range = "A8:P1872", col_types = c("text", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "numeric", 
+        "numeric", "numeric", "text", "numeric", 
+        "text", "numeric"))
+
+# get wholesale price index from FRED
+getSymbols("PPIACO", src = "FRED")
+wpi <- PPIACO["1926-03-01/2026-03-01"]
+
+ie_data$Date <- seq(from = as.Date("1871-01-01"), 
+                    to = as.Date("2026-04-01"), 
+                    by = "month")
+df <- ie_data[ie_data$Date >= as.Date("1926-03-01") &
+                ie_data$Date <= as.Date("2026-03-01"),]
+
+price <- df$P
+dividend <- df$D
+log_price <- log(price)
+log_dividend <- log(dividend)
+
+save.image("allData.RData")
+
+
+```
