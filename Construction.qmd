@@ -14,6 +14,9 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(readxl, quantmod)
 
 #importing excel sheet
+#Data: Robert Shiller, Yale university
+#S&P Composite Stock Price Index, dividends, earnings
+#http://www.econ.yale.edu/~shiller/data.htm
 ie_data <- read_excel("data/ie_data.xls", 
     sheet = "Data", range = "A8:P1872", col_types = c("text", 
         "numeric", "numeric", "numeric", 

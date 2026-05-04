@@ -10,7 +10,7 @@ editor: visual
 ```{r}
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(stats, dynlm, lmtest, sandwich, urca, quantmod, exuber, readxl, exuberdata)
+pacman::p_load(stats, dynlm, lmtest, sandwich, urca, quantmod, exuber, readxl, exuberdata, ggplot2)
 
 load("allData.RData")
 
@@ -51,11 +51,12 @@ roti = psy_ds(length(y2), rule = 1, delta = 1)
 dstamp_y2 <- datestamp(est_y2, min_duration = roti)
 dstamp_y2
 
+autoplot(est_y) + labs(title = "log price/dividend")
+autoplot(est_y2) + labs(title = "log price")
+
 #cleanup
 rm(PPIACO)
 
-#gonna remove PPI, thats only in Diba and Grossman
-library(onlineforecast)
 
 #OLS
 regName1 <- lm(log_price ~ log_dividend)
@@ -63,8 +64,6 @@ regName1 <- lm(log_price ~ log_dividend)
 regname2 <- dynlm(ts(log_price) ~ L(ts(log_price)) + L(ts(log_price), 2))
 #
 coeftest(regName1, vcov. = vcovHC, type = "HC1")
-
-#NEXT: read on Exuber package used for GSADF from PWY
 
 #Engle-Granger test for cointegration of prices and divs
 FS_EGADF <- dynlm(ts(log_price) ~ ts(log_dividend))
